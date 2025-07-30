@@ -1,3 +1,21 @@
+import DarkThemeButton from "../components/common/button-darkTheme";
+
 export default function Homepage (){
-    return <h1>Homepage</h1>
+    return (
+        <section>
+            <section>
+                <DarkThemeButton/>
+            </section>
+
+            <section>
+                <h1>Assistente Rummikub</h1>
+            </section>
+
+
+            <section>
+                
+            </section>
+        </section>
+        
+    )
 }

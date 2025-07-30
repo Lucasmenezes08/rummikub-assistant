@@ -1,3 +1,4 @@
+import ConfirmButton from "../components/common/button-confirm";
 import DarkThemeButton from "../components/common/button-darkTheme";
 
 export default function Homepage (){
@@ -13,7 +14,7 @@ export default function Homepage (){
 
 
             <section>
-                
+                <ConfirmButton/>
             </section>
         </section>
         

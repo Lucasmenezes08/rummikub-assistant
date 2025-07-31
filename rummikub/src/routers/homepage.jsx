@@ -12,10 +12,9 @@ export default function Homepage (){
                 <DarkThemeButton onClick={() => alterarTema(tema)}/>
             </section>
 
-            <section>
-                <h1 className={`absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] whitespace-pre-line ${tema === 'dark' ? 'text-white' : 'text-black'}`}>
-                    Assistente 
-                    Rummikub
+            <section className="">
+                <h1 className={` w-full absolute text-3xl text-center top-[50%] -translate-y-[50%] whitespace-pre-wrap ${tema === 'dark' ? 'text-white' : 'text-black'}`}>
+                    Assistente Rummikub
                 </h1>
             </section>
 

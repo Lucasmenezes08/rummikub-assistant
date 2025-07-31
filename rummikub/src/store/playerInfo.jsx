@@ -10,13 +10,22 @@ export default function PlayerProvider ({children}){
         return playerObject ? JSON.parse(playerObject) : [];
     })
 
+    function setPlayers (array) {
+        const newArray = array.map((name , index) =>({
+            id: index,
+            name: name,
+            score: 0,
+        }))
+        setPlayerInfo(newArray)
+    }
+
     useEffect (() => {
         sessionStorage.setItem('playerInfo', JSON.stringify(playerInfo))
     }, [playerInfo]);
 
     const value = {
         players: playerInfo,
-        
+        setPlayers : setPlayers
     };
 
 

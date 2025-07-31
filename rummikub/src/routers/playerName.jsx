@@ -1,10 +1,12 @@
 import PlayerInput from "../components/playerName/playerInput";
 import { useNavigate } from "react-router-dom";
 import useBackNavigation from "../hooks/useBackNavigation";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext } from "../store/darkThemeContext";
 import { PlayerQuantidadeContext } from "../store/playerQuantidadeContext";
 import BackButton from "../components/common/button-back";
+import ConfirmButton from "../components/common/button-confirm";
+import { PlayerContext } from "../store/playerInfo";
 
 
 export default function PlayerName(){
@@ -12,12 +14,32 @@ export default function PlayerName(){
     const backRouter = useBackNavigation();
     const {tema} = useContext(ThemeContext);
     const {quantidade , alterarQuantidade} = useContext(PlayerQuantidadeContext);
+    const {setPlayers} = useContext(PlayerContext);
     
-    function handleConfirm (){
-        if (!quantidade){
+    const [names , setNames] = useState(() => {
+        const initialValue = [];
+        for (let i = 0 ; i < quantidade ; i ++){
+            initialValue.push('')
+        }
+        return initialValue;
+    })
+
+    function handleInput (index , newName) {
+        const updatedNames = [...names];
+        updatedNames[index] = newName;
+        setNames(updatedNames)
+        
+    }
+
+    function handleSubmit (){
+        if (names.some(name => name.trim() === '')){
             return
         }
-        navigate('/playername');
+
+        else {
+            setPlayers(names);
+            navigate('/game');
+        }
     }
 
 
@@ -37,8 +59,14 @@ export default function PlayerName(){
                             <PlayerInput 
                                 key={index}
                                 playerNumber={index + 1}
+                                value={names[index]}
+                                onChange={(event) => handleInput(index , event.target.value)}
                             />
                         )}
+                    </section>
+
+                    <section className="mt-[3.5rem]">
+                        <ConfirmButton mensagem={'Iniciar jogo'} onClick={handleSubmit} disabled={names.some(name => name.trim() === '')}/>
                     </section>
                 </section>
             </section>

@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { ThemeContext } from "../../store/darkThemeContext"
 
-export default function PlayerInput ({playerNumber}){
+export default function PlayerInput ({playerNumber , onChange}){
     const {tema} = useContext(ThemeContext);
 
     const inputTheme = tema === 'dark'
@@ -11,7 +11,7 @@ export default function PlayerInput ({playerNumber}){
     return (
         <section>
             <section>
-                <input type="text" placeholder={`player ${playerNumber}`} className={`${inputTheme} gap-5`}/>
+                <input type="text" onChange={onChange} placeholder={`player ${playerNumber}`} className={`${inputTheme} gap-5`}/>
             </section>
         </section>
     )

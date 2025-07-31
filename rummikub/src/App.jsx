@@ -2,7 +2,8 @@ import { BrowserRouter , Routes , Route} from 'react-router-dom'
 import './style/styles.css'
 import Homepage from './routers/homepage'
 import ThemeProvider from './store/darkThemeContext'
-import QuantidadePlayer from './store/playerQuantidadeContext'
+import QuantidadePlayer from './routers/quantidade-players'
+
 
 
 export default function App (){

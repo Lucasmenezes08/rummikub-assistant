@@ -17,7 +17,7 @@ export default function QuantidadePlayer () {
                 <BackButton onClick={backRouter}/>
             </section>
 
-            <section className="absolute top-[40%] -translate-y-[40%] px-2">
+            <section className="absolute top-[40%] -translate-y-[40%] px-2 lg: left-[50%] -translate-x-[50%]">
                 <section className={`flex flex-col items-center ${tema === 'dark' ? 'text-white' : 'text-black'}`}>
                     <h1 className="text-2xl font-semibold text-center py-8"> Selecione o número de jogadores</h1>
 

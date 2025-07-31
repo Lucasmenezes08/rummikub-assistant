@@ -28,11 +28,18 @@ export default function PlayerName(){
                 <BackButton onClick={backRouter}/>
             </section>
 
-            <section className="absolute top-[2%] -translate-y-[2%] left-[50%] -translate-x-[50%]">
+            <section className="absolute top-[5%] -translate-y-[2%] left-[50%] -translate-x-[50%]">
                 <section className="flex flex-col items-center">
-                    <h2 className="font-semibold text-center text-xl mb-[4rem]">Nome dos jogadores</h2>
+                    <h2 className="font-semibold text-center text-xl mb-[3rem]">Nome dos jogadores</h2>
 
-                    <PlayerInput/>
+                    <section className="flex flex-col gap-6">
+                        {Array.from({length: quantidade}).map(( _ , index) => 
+                            <PlayerInput 
+                                key={index}
+                                playerNumber={index + 1}
+                            />
+                        )}
+                    </section>
                 </section>
             </section>
 

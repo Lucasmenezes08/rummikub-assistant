@@ -20,7 +20,7 @@ export default function Homepage (){
             </section>
 
             <section className="">
-                <h1 className={` w-full absolute text-3xl text-center top-[50%] -translate-y-[50%] whitespace-pre-wrap font-bold ${tema === 'dark' ? 'text-white' : 'text-black'}`}>
+                <h1 className={` w-full absolute text-3xl text-center top-[50%] -translate-y-[50%] whitespace-pre-wrap font-semibold ${tema === 'dark' ? 'text-white' : 'text-black'}`}>
                     Assistente Rummikub
                 </h1>
             </section>

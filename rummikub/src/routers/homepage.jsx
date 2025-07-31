@@ -20,7 +20,7 @@ export default function Homepage (){
             </section>
 
 
-            <section>
+            <section className="absolute  top-[90%] left-[50%] -translate-x-[50%] -translate-y-[90%]">
                 <ConfirmButton/>
             </section>
         </section>

@@ -38,9 +38,8 @@ export default function PlayerName(){
 
         else {
             setPlayers(names);
-            if (quantidade === true){
-                navigate('/game');
-            }
+            navigate('/game');
+            
             
         }
     }

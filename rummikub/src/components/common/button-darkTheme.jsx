@@ -6,7 +6,7 @@ export default function DarkThemeButton ({onClick}){
     const {tema} = useContext(ThemeContext);
     return (
         <section className="">
-            <button><CgDarkMode onClick={onClick} size={50} className={`${tema === 'dark' ? 'bg-slate-700' : ''} rounded-3xl`}/></button>
+            <button><CgDarkMode onClick={onClick} size={50} className={`${tema === 'dark' ? 'bg-slate-700' : ''} rounded-3xl cursor-pointer`}/></button>
         </section>
     )
 }

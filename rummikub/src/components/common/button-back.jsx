@@ -7,7 +7,7 @@ export default function BackButton ({onClick}){
     const {tema} = useContext(ThemeContext);
     return (
         <button onClick={onClick} >
-            <GoArrowLeft size={35} className={`${tema === 'dark' ? 'text-white' : 'text-black'}`}/>
+            <GoArrowLeft size={35} className={`${tema === 'dark' ? 'text-white' : 'text-black'} cursor-pointer`}/>
         </button>
     )
 }

@@ -9,8 +9,8 @@ export const PlayerQuantidadeContext = createContext();
 
 export default function PlayerQuantidadeProvider ({children}){
     const [quantidadePlayers , setQuantidadePlayers] = useState(() => {
-            const quantidade = localStorage.getItem('quantidade');
-            return quantidade ? JSON.parse(quantidade) : 4;
+            const quantidade = sessionStorage.getItem('quantidade');
+            return quantidade ? JSON.parse(quantidade) : null;
         });
     
     
@@ -19,7 +19,15 @@ export default function PlayerQuantidadeProvider ({children}){
         }
     
         useEffect (() => {
-            localStorage.setItem('quantidade' , JSON.stringify(quantidadePlayers))
+            console.log(quantidadePlayers);
+            if (quantidadePlayers === null){
+                sessionStorage.removeItem('quantidade');
+            }
+            else{
+                sessionStorage.setItem('quantidade' , JSON.stringify(quantidadePlayers))
+            }
+            
+           
         }, [quantidadePlayers]);
 
 

@@ -1,17 +1,20 @@
-import { useContext } from "react"
+import { useContext , useState } from "react"
 import { PlayerContext } from "../../store/playerInfo"
 import ScoreInput from "./scoreInput";
+import { PlayerQuantidadeContext } from "../../store/playerQuantidadeContext";
 
 
 
-export default function PlayerCardInfo ({id , name , scoreRodada , scoreTotal, winner}){
-    const {players} = useContext(PlayerContext);
+export default function PlayerCardInfo ({player}){
+    const {players , UpdateRoundScore} = useContext(PlayerContext);
+
+ 
     return (
         <section>
             <section>
                 <section>
-                    <p>{name}</p>
-                    <p>Score Rodada: {scoreRodada}/Score Total: {scoreTotal}</p>
+                    <p>{player.name}</p>
+                    <p>Score Rodada: {player.scoreRodada}/Score Total: {player.scoreTotal}</p>
                 </section>
 
                 <section>
@@ -20,7 +23,10 @@ export default function PlayerCardInfo ({id , name , scoreRodada , scoreTotal, w
             </section>
             
             <section>
-                <ScoreInput/>
+                <ScoreInput 
+                    value={player.scoreRodada}
+                    onChange={(e) => UpdateRoundScore(player.id , e.target.value)}
+                />
             </section>
 
         </section>

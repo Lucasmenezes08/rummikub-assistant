@@ -8,10 +8,7 @@ export default function PlayerCard (){
         <section>
             {players.map(player => (
                 <PlayerCardInfo key={player.id} 
-                    name={player.name} 
-                    scoreRodada={player.scoreRodada} 
-                    scoreTotal={player.scoreTotal} 
-                    winner={player.winner}
+                    player={player}
                 />
             ))}
         </section>

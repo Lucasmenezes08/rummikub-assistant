@@ -10,19 +10,19 @@ export default function PlayerCardInfo ({player}){
 
  
     return (
-        <section>
-            <section>
-                <section>
+        <section className="flex flex-col gap-10">
+            <section className="flex flex-row justify-between items-center">
+                <section className="flex flex-col">
                     <p>{player.name}</p>
-                    <p>Score Rodada: -{player.scoreRodada}/Score Total: {player.scoreTotal}</p>
+                    <p>Score{player.scoreTotal}</p>
                 </section>
 
                 <section>
-                    <button className="cursor-pointer" onClick={() => handleWinner(player.id)}>Vencedor?</button>
+                    <button className="flex items-center justify-center w-[4rem] h-[2rem] text-xs rounded-2xl bg-gray-600 cursor-pointer" onClick={() => handleWinner(player.id)}>Vencedor?</button>
                 </section>
             </section>
             
-            <section>
+            <section className="flex justify-center items-center pb-15">
                 <ScoreInput 
                     value={player.scoreRodada}
                     onChange={(e) => UpdateRoundScore(player.id , e.target.value)}

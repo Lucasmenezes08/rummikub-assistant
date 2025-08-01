@@ -27,25 +27,26 @@ export default function Game (){
     } , [rodadas , navigate])
 
     return (
-        <section className={`relative h-screen w-full ${tema === 'dark' ? 'bg-slate-900 text-white' : 'bg-white text-black'}`}>
-            <section className="absolute top-[2%] -translate-y-[2%] px-2">
-                <BackButton onClick={handleGoBack}/>
-            </section>
+        <section className={`flex flex-col min-h-screen w-full overflow-y-hidden ${tema === 'dark' ? 'bg-slate-900 text-white' : 'bg-white text-black'}`}>
+            <section className="sticky top-0 z-10 flex items-center justify-between w-full p-4">
+                <section className="">
+                    <BackButton onClick={handleGoBack}/>
+                </section>
 
-            <section className="absolute top-[5%] -translate-y-[2%] left-[50%] -translate-x-[50%]">
-                <section className="flex flex-col items-center">
+                <section className="">
                      <h2>Jogo</h2>
+                     <h3>Rodada: {rodadas}</h3>
                 </section>
 
-                <section>
-                    <h3>Rodada: {rodadas}</h3>
-                </section>
+            </section>
+          
+            <section className="flex flex-col justify-center items-center">
 
-                <section>
+                <section className="flex-grow w-full max-w-6xl mx-auto p-4">
                     <PlayerCard/>
                 </section>
 
-                <section>
+                <section className="pb-10">
                     <ConfirmButton  onClick={finishRound} mensagem={`Finalizar rodada ${rodadas}`} />
                 </section>
             </section>

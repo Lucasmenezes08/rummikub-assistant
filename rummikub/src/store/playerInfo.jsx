@@ -13,9 +13,11 @@ export default function PlayerProvider ({children}){
         const rodadaAtual = sessionStorage.getItem('rodada');
         return rodadaAtual ? JSON.parse(rodadaAtual) : 1;
     });
+    
 
 
     function UpdateRoundScore (playerId , score){
+
         const ScoreNumber = parseInt(score) || 0;
 
         setPlayerInfo(prevPlayers => prevPlayers.map(player =>
@@ -23,18 +25,52 @@ export default function PlayerProvider ({children}){
         ))
     }
 
+    function handleWinner (playerId){
+        setPlayerInfo(prevPlayers => prevPlayers.map(player => ({
+            ...player ,
+            winner: player.id === playerId
+            })
+        ))
+    }
+
+
+
     function finishRound (){
+
+        const winner = playerInfo.find(player => player.winner === true);
+
+        if (!winner){
+            return;
+        }
+        
+        const pontuacaoDosPerdedores = playerInfo.filter(player =>  !player.winner).reduce((sum , perdedor) => sum + (Number(perdedor.scoreRodada) || 0) , 0)
+
         setPlayerInfo(prevPlayers => prevPlayers.map(player => {
             const ScoreNumber = parseInt(player.scoreRodada) || 0;
+
+            
+            
+            if (player.id === winner.id){
+                return {
+                ...player,
+                scoreTotal : player.scoreTotal + pontuacaoDosPerdedores,
+                scoreRodada: 0,
+                winner : false,
+                }
+            }
+
             return {
                 ...player,
-                scoreTotal : player.scoreTotal + ScoreNumber,
+                scoreTotal : player.scoreTotal + (-1 *(ScoreNumber)),
                 scoreRodada: 0,
+                winner : false,
             }
         }))
 
         handleRound();
     }
+
+
 
 
     function handleRound (){
@@ -70,6 +106,7 @@ export default function PlayerProvider ({children}){
         setRound: handleRound,
         UpdateRoundScore,
         finishRound,
+        handleWinner,
     };
 
 

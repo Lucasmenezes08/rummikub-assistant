@@ -41,7 +41,7 @@ export default function Game (){
                 </section>
 
                 <section>
-                    <ConfirmButton  onClick={finishRound}mensagem={`Finalizar rodada ${rodadas}`} disabled={players.some((player)=> player.scoreRodada === 0)}/>
+                    <ConfirmButton  onClick={finishRound}mensagem={`Finalizar rodada ${rodadas}`} />
                 </section>
             </section>
 

@@ -6,7 +6,7 @@ import { PlayerQuantidadeContext } from "../../store/playerQuantidadeContext";
 
 
 export default function PlayerCardInfo ({player}){
-    const {players , UpdateRoundScore} = useContext(PlayerContext);
+    const {players , UpdateRoundScore , handleWinner} = useContext(PlayerContext);
 
  
     return (
@@ -14,11 +14,11 @@ export default function PlayerCardInfo ({player}){
             <section>
                 <section>
                     <p>{player.name}</p>
-                    <p>Score Rodada: {player.scoreRodada}/Score Total: {player.scoreTotal}</p>
+                    <p>Score Rodada: -{player.scoreRodada}/Score Total: {player.scoreTotal}</p>
                 </section>
 
                 <section>
-                    <button>Vencedor?</button>
+                    <button className="cursor-pointer" onClick={() => handleWinner(player.id)}>Vencedor?</button>
                 </section>
             </section>
             

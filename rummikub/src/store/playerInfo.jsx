@@ -11,8 +11,13 @@ export default function PlayerProvider ({children}){
     })
     const [rodada , setRodada] = useState(() => {
         const rodadaAtual = sessionStorage.getItem('rodada');
-        return rodadaAtual ? JSON.parse(rodadaAtual) : null;
+        return rodadaAtual ? JSON.parse(rodadaAtual) : 1;
     });
+
+
+    function handleRound (){
+        setRodada((prev) => prev + 1);
+    }
 
 
     function setPlayers (array) {
@@ -27,12 +32,17 @@ export default function PlayerProvider ({children}){
 
     useEffect (() => {
         sessionStorage.setItem('playerInfo', JSON.stringify(playerInfo));
+    }, [playerInfo]);
+
+    useEffect (() => {
         sessionStorage.setItem('rodada', JSON.stringify(rodada));
-    }, [playerInfo , rodada]);
+    } , [rodada])
 
     const value = {
         players: playerInfo,
-        setPlayers : setPlayers
+        rodadas: rodada,
+        setPlayers : setPlayers,
+        setRound: handleRound,
     };
 
 

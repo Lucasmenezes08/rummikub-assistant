@@ -11,7 +11,7 @@ export default function Game (){
     const backRouter = useBackNavigation();
     const {tema} = useContext(ThemeContext);
     const {quantidade , alterarQuantidade} = useContext(PlayerQuantidadeContext);
-    const {setPlayers} = useContext(PlayerContext);
+    const {setPlayers , setRound , rodadas} = useContext(PlayerContext);
 
 
     return (
@@ -21,8 +21,16 @@ export default function Game (){
             </section>
 
             <section className="absolute top-[5%] -translate-y-[2%] left-[50%] -translate-x-[50%]">
-                <h2>Jogo</h2>
+                <section className="flex flex-col items-center">
+                     <h2>Jogo</h2>
+                </section>
+
+                <section>
+                    <h3>Rodada: {rodadas}</h3>
+                </section>
             </section>
+
+
         </section>
     )
 }

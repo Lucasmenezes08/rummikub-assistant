@@ -26,6 +26,7 @@ export default function PlayerProvider ({children}){
             name: name,
             scoreRodada: 0,
             scoreTotal: 0,
+            winner: false,
         }))
         setPlayerInfo(newArray)
     }

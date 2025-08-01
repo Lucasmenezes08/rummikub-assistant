@@ -5,6 +5,7 @@ import { ThemeContext } from "../store/darkThemeContext";
 import { PlayerQuantidadeContext } from "../store/playerQuantidadeContext";
 import { PlayerContext } from "../store/playerInfo";
 import BackButton from "../components/common/button-back";
+import PlayerCard from "../components/playerCard/playerCard";
 
 export default function Game (){
     const navigate = useNavigate();
@@ -27,6 +28,10 @@ export default function Game (){
 
                 <section>
                     <h3>Rodada: {rodadas}</h3>
+                </section>
+
+                <section>
+                    <PlayerCard/>
                 </section>
             </section>
 

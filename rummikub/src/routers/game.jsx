@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import useBackNavigation from "../hooks/useBackNavigation";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeContext } from "../store/darkThemeContext";
 import { PlayerQuantidadeContext } from "../store/playerQuantidadeContext";
 import { PlayerContext } from "../store/playerInfo";
@@ -10,7 +10,6 @@ import ConfirmButton from "../components/common/button-confirm";
 
 export default function Game (){
     const navigate = useNavigate();
-    const backRouter = useBackNavigation();
     const {tema} = useContext(ThemeContext);
     const {quantidade , alterarQuantidade} = useContext(PlayerQuantidadeContext);
     const {setPlayers , setRound , setRodada, rodadas , players , UpdateRoundScore , finishRound} = useContext(PlayerContext);
@@ -20,6 +19,12 @@ export default function Game (){
         setRodada(1); 
         goBack();     
     }
+
+    useEffect (() => {
+        if (rodadas > 3) {
+            navigate('/resultado')
+        }
+    } , [rodadas , navigate])
 
     return (
         <section className={`relative h-screen w-full ${tema === 'dark' ? 'bg-slate-900 text-white' : 'bg-white text-black'}`}>
@@ -41,7 +46,7 @@ export default function Game (){
                 </section>
 
                 <section>
-                    <ConfirmButton  onClick={finishRound}mensagem={`Finalizar rodada ${rodadas}`} />
+                    <ConfirmButton  onClick={finishRound} mensagem={`Finalizar rodada ${rodadas}`} />
                 </section>
             </section>
 

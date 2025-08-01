@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 
 
 export const PlayerContext = createContext();
@@ -68,6 +69,7 @@ export default function PlayerProvider ({children}){
         }))
 
         handleRound();
+
     }
 
 

@@ -7,6 +7,7 @@ import PlayerQuantidadeProvider from './store/playerQuantidadeContext'
 import PlayerName from './routers/playerName'
 import PlayerProvider from './store/playerInfo'
 import Game from './routers/game'
+import Resultado from './routers/resultado'
 
 
 
@@ -21,6 +22,7 @@ export default function App (){
         <Route path='/quantidade' element={<QuantidadePlayer/>}/>
         <Route path='/playername' element={<PlayerName/>}/>
         <Route path='/game' element={<Game/>}/>
+        <Route path='/resultado' element={<Resultado/>}/>
       </Routes>
     </BrowserRouter>
     </PlayerQuantidadeProvider>

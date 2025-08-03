@@ -2,6 +2,7 @@ import { useContext , useState } from "react"
 import { PlayerContext } from "../../store/playerInfo"
 import ScoreInput from "./scoreInput";
 import { PlayerQuantidadeContext } from "../../store/playerQuantidadeContext";
+import { WinnerButton } from "../common/button-winner";
 
 
 
@@ -18,7 +19,7 @@ export default function PlayerCardInfo ({player}){
                 </section>
 
                 <section>
-                    <button className="flex items-center justify-center w-[4rem] h-[2rem] text-xs rounded-2xl bg-gray-600 cursor-pointer" onClick={() => handleWinner(player.id)}>Vencedor?</button>
+                   <WinnerButton onClick={() => handleWinner(player.id)} isActive={player.winner === true}/>
                 </section>
             </section>
             

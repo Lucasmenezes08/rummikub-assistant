@@ -15,6 +15,12 @@ export default function Game (){
     const {setPlayers , setRound , setRodada, rodadas , players , UpdateRoundScore , finishRound} = useContext(PlayerContext);
     const goBack = useBackNavigation();
 
+    const vencedores = players.some((player) => player.winner === true);
+    const perdedores = players.filter((player) => !player.winner);
+    const pontuacaoDosPerdedores = perdedores.every((player) => player.scoreRodada > 0);
+    const isButtonDisabled = !vencedores || !pontuacaoDosPerdedores;
+    
+
     function handleGoBack() {
         setRodada(1); 
         goBack();     
@@ -46,7 +52,7 @@ export default function Game (){
                 </section>
 
                 <section className="pb-10">
-                    <ConfirmButton  onClick={finishRound} mensagem={`Finalizar rodada ${rodadas}`} />
+                    <ConfirmButton  onClick={finishRound} mensagem={`Finalizar rodada ${rodadas}`} disabled={isButtonDisabled}/>
                 </section>
             </section>
 

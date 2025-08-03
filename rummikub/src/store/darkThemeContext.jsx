@@ -22,7 +22,7 @@ export default function ThemeProvider ({children}){
     }
 
     useEffect (() => {
-        localStorage.setItem('theme' , JSON.stringify(currentTheme))
+        localStorage.setItem('theme' ,currentTheme)
     }, [currentTheme])
 
 

@@ -13,8 +13,8 @@ export default function PlayerCardInfo ({player}){
         <section className="flex flex-col gap-10">
             <section className="flex flex-row justify-between items-center">
                 <section className="flex flex-col">
-                    <p>{player.name}</p>
-                    <p>Score{player.scoreTotal}</p>
+                    <p className="font-medium text-lg">{player.name}</p>
+                    <p className="font-light text-gray-300">Score: {player.scoreTotal}</p>
                 </section>
 
                 <section>

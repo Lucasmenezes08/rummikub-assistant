@@ -34,8 +34,7 @@ export default function Game (){
                 </section>
 
                 <section className="">
-                     <h2>Jogo</h2>
-                     <h3>Rodada: {rodadas}</h3>
+                     <h3 className="font-semibold text-xl">Rodada: {rodadas}</h3>
                 </section>
 
             </section>

@@ -8,7 +8,7 @@ export const ThemeContext = createContext();
 export default function ThemeProvider ({children}){
     const [currentTheme , setCurrentTheme] = useState(() => {
         const temaSalvo = localStorage.getItem('theme');
-        return temaSalvo ? 'dark': JSON.parse(temaSalvo);
+        return temaSalvo || 'dark';
     });
 
     function handleTheme (theme){

@@ -7,6 +7,11 @@ import { PlayerContext } from "../store/playerInfo";
 import BackButton from "../components/common/button-back";
 import PlayerCard from "../components/playerCard/playerCard";
 import ConfirmButton from "../components/common/button-confirm";
+import { motion } from "framer-motion";
+
+
+
+
 
 export default function Game (){
     const navigate = useNavigate();
@@ -45,9 +50,11 @@ export default function Game (){
 
             </section>
           
-            <section className="flex flex-col justify-center items-center">
+            <section className="flex flex-col justify-center items-center"
+                
+            >
 
-                <section className="flex-grow w-full max-w-6xl mx-auto p-4">
+                <section className="flex-grow w-full max-w-6xl mx-auto p-4 pb-10">
                     <PlayerCard/>
                 </section>
 

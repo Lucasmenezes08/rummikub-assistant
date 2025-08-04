@@ -1,9 +1,19 @@
 import { IconResult } from "./icon-resultado"
+import { motion } from "framer-motion"
+
+
+
+const itemVariants = {
+    hidden: {y: 10 , opacity: 0},
+    visible: {y: 0 , opacity: 1},
+}
+
+
 
 export function ResultadoPlayer ({player , rank}) {
 
     return (
-        <section className="flex flex-row justify-between items-center px-5 mb-9">
+        <motion.section className="flex flex-row justify-between items-center px-5 mb-9" variants={itemVariants}>
             <section className="flex flex-row items-center">
                 <section className="flex items-center justify-center w-[3rem] h-[3rem] rounded-lg bg-gray-500 mr-5">
                     <IconResult posicao={rank}/>
@@ -16,6 +26,6 @@ export function ResultadoPlayer ({player , rank}) {
 
             </section>
             <p>{rank}º posição</p>
-        </section>
+        </motion.section>
     )
 }

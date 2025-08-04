@@ -7,6 +7,22 @@ import { PlayerQuantidadeContext } from "../store/playerQuantidadeContext";
 import BackButton from "../components/common/button-back";
 import ConfirmButton from "../components/common/button-confirm";
 import { PlayerContext } from "../store/playerInfo";
+import { motion } from "framer-motion";
+
+
+
+
+const variantsContainer = {
+    hidden: {opacity: 0},
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.2
+        }
+    }
+
+}
+
 
 
 export default function PlayerName(){
@@ -52,11 +68,20 @@ export default function PlayerName(){
                 <BackButton onClick={backRouter}/>
             </section>
 
-            <section className="absolute top-[5%] -translate-y-[2%] left-[50%] -translate-x-[50%]">
+            <motion.section 
+            className="absolute top-[5%] -translate-y-[2%] left-[50%] -translate-x-[50%]"
+            initial={{ opacity: 0}}
+            animate={{ opacity: 1}}
+            transition={{ duration: 0.75, ease: "easeInOut" }}
+            >
                 <section className="flex flex-col items-center">
                     <h2 className="font-semibold text-center text-xl mb-[3rem]">Nome dos jogadores</h2>
 
-                    <section className="flex flex-col gap-6">
+                    <motion.section className="flex flex-col gap-6"
+                        variants={variantsContainer}
+                        initial='hidden'
+                        animate='visible'
+                    >
                         {Array.from({length: quantidade}).map(( _ , index) => 
                             <PlayerInput 
                                 key={index}
@@ -65,13 +90,13 @@ export default function PlayerName(){
                                 onChange={(event) => handleInput(index , event.target.value)}
                             />
                         )}
-                    </section>
+                    </motion.section>
 
                     <section className="mt-[3.5rem]">
                         <ConfirmButton mensagem={'Iniciar jogo'} onClick={handleSubmit} disabled={names.some(name => name.trim() === '')}/>
                     </section>
                 </section>
-            </section>
+            </motion.section>
 
         </section>
     )

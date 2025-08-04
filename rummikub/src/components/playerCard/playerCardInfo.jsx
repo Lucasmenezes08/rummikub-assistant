@@ -3,7 +3,15 @@ import { PlayerContext } from "../../store/playerInfo"
 import ScoreInput from "./scoreInput";
 import { PlayerQuantidadeContext } from "../../store/playerQuantidadeContext";
 import { WinnerButton } from "../common/button-winner";
+import { motion } from "framer-motion";
 
+
+
+
+const itemVariants = {
+    hidden: {y: 20 , opacity: 0},
+    visible: {y: 0 , opacity: 1},
+}
 
 
 export default function PlayerCardInfo ({player}){
@@ -11,8 +19,11 @@ export default function PlayerCardInfo ({player}){
 
  
     return (
-        <section className="flex flex-col gap-10">
-            <section className="flex flex-row justify-between items-center">
+        <motion.section className="flex flex-col gap-10 bg-slate-800 rounded-3xl"
+            variants={itemVariants}
+        
+        >
+            <section className="flex flex-row justify-between items-center px-5 py-5">
                 <section className="flex flex-col">
                     <p className="font-medium text-lg">{player.name}</p>
                     <p className="font-light text-gray-300">Score: {player.scoreTotal}</p>
@@ -30,6 +41,6 @@ export default function PlayerCardInfo ({player}){
                 />
             </section>
 
-        </section>
+        </motion.section>
     )
 }

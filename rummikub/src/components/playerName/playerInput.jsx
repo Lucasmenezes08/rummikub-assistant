@@ -1,5 +1,14 @@
 import { useContext } from "react"
 import { ThemeContext } from "../../store/darkThemeContext"
+import { motion } from "framer-motion";
+
+
+
+const itemVariants = {
+    hidden: {y: 20 , opacity: 0},
+    visible: {y: 0 , opacity: 1},
+}
+
 
 export default function PlayerInput ({playerNumber , onChange}){
     const {tema} = useContext(ThemeContext);
@@ -10,9 +19,9 @@ export default function PlayerInput ({playerNumber , onChange}){
 
     return (
         <section>
-            <section>
+            <motion.section variants={itemVariants}>
                 <input type="text" onChange={onChange} placeholder={`player ${playerNumber}`} className={`${inputTheme} gap-5`}/>
-            </section>
+            </motion.section>
         </section>
     )
 }

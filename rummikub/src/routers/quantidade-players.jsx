@@ -26,17 +26,16 @@ export default function QuantidadePlayer () {
 
 
     return (
-        <motion.section 
-        className={`relative h-screen w-full ${tema === 'dark' ? 'bg-slate-900' : 'bg-white'}`}
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
-        transition={{ duration: 0.5 , ease: "easeInOut"}}
-        >
+        <section 
+        className={`relative h-screen w-full ${tema === 'dark' ? 'bg-slate-900' : 'bg-white'}`}>
             <section className="absolute top-[2%] -translate-y-[2%] px-5">
                 <BackButton onClick={backRouter}/>
             </section>
 
-            <section className="absolute top-[40%] -translate-y-[40%] px-2 lg:left-[50%] lg:-translate-x-[50%]">
+            <motion.section className="absolute top-[40%] -translate-y-[40%] px-2 lg:left-[50%] lg:-translate-x-[50%]" 
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{ duration: 0.5 , ease: "easeInOut"}}>
                 <section className={`flex flex-col items-center ${tema === 'dark' ? 'text-white' : 'text-black'}`}>
                     <h1 className="text-2xl font-semibold text-center py-10"> Selecione o número de jogadores</h1>
 
@@ -49,7 +48,7 @@ export default function QuantidadePlayer () {
                        
                     </section>
                 </section>
-            </section>
+            </motion.section>
 
 
             <section className="absolute  top-[90%] left-[50%] -translate-x-[50%] -translate-y-[90%]">
@@ -58,6 +57,6 @@ export default function QuantidadePlayer () {
 
 
 
-        </motion.section>
+        </section>
     )
 }

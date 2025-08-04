@@ -15,10 +15,13 @@ export default function Homepage (){
     }
     return (
         <section className={` relative h-screen w-full ${tema === 'dark' ? 'bg-slate-900' : 'bg-white'}`}>
+            {
+                /*
             <section className="absolute top-[10%] right-[2%] -translate-x-[2%] -translate-y-[90%] ">
                 <DarkThemeButton onClick={() => alterarTema(tema)}/>
             </section>
-
+                */
+            }
             <section className="">
                 <h1 className={` w-full absolute text-3xl text-center top-[50%] -translate-y-[50%] whitespace-pre-wrap font-semibold ${tema === 'dark' ? 'text-white' : 'text-black'}`}>
                     Assistente Rummikub

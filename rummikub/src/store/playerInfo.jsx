@@ -100,6 +100,20 @@ export default function PlayerProvider ({children}){
         sessionStorage.setItem('rodada', JSON.stringify(rodada));
     } , [rodada])
 
+
+
+    function resetGame() {
+        
+        setPlayerInfo([]);
+        setRodada(1);
+
+    
+        sessionStorage.removeItem('playerInfo');
+        sessionStorage.removeItem('quantidade');
+        sessionStorage.removeItem('rodada');
+    }
+
+
     const value = {
         players: playerInfo,
         rodadas: rodada,
@@ -109,8 +123,11 @@ export default function PlayerProvider ({children}){
         UpdateRoundScore,
         finishRound,
         handleWinner,
+        resetGame,
     };
 
+
+    
 
     return (
         <PlayerContext.Provider value={value}>

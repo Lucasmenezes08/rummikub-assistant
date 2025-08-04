@@ -9,22 +9,22 @@ export function IconResult ({posicao}){
 
 
     if (posicao === 1){
-        icon = <CiTrophy />
+        icon = <CiTrophy size={30}/>
     }
 
     else if (posicao === 2 || posicao === 3){
-        icon = <PiMedal />
+        icon = <PiMedal size={30}/>
     }
 
    
     else {
-        icon = <CiFlag1 />
+        icon = <CiFlag1 size={30} />
     }
 
 
 
     return (
-        <section>
+        <section className="text-black">
             {icon}
         </section>
     )

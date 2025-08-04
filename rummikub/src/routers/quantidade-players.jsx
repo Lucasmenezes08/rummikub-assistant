@@ -6,6 +6,7 @@ import SelectButton from "../components/common/button-select";
 import ConfirmButton from "../components/common/button-confirm";
 import { PlayerQuantidadeContext } from "../store/playerQuantidadeContext";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 
 export default function QuantidadePlayer () {
@@ -25,7 +26,12 @@ export default function QuantidadePlayer () {
 
 
     return (
-        <section className={`relative h-screen w-full ${tema === 'dark' ? 'bg-slate-900' : 'bg-white'}`}>
+        <motion.section 
+        className={`relative h-screen w-full ${tema === 'dark' ? 'bg-slate-900' : 'bg-white'}`}
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        transition={{ duration: 0.5 , ease: "easeInOut"}}
+        >
             <section className="absolute top-[2%] -translate-y-[2%] px-5">
                 <BackButton onClick={backRouter}/>
             </section>
@@ -52,6 +58,6 @@ export default function QuantidadePlayer () {
 
 
 
-        </section>
+        </motion.section>
     )
 }

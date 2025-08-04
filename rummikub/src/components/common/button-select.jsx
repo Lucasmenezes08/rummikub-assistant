@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { ThemeContext } from "../../store/darkThemeContext"
+import { motion } from "framer-motion";
 
 
 export default function SelectButton ({number , onClick , isActive}){
@@ -16,7 +17,13 @@ export default function SelectButton ({number , onClick , isActive}){
             : 'bg-gray-300 hover:bg-gray-400'; 
     return (
         <section>
-            <button className={`flex items-center justify-center w-[11rem] h-[3rem] ${isActiveTheme} rounded-2xl text-xl ${tema === 'dark' ? 'text-white' : 'text-black'} cursor-pointer`} onClick={onClick}>{number}</button>
+            <motion.button 
+                className={`flex items-center justify-center w-[11rem] h-[3rem] ${isActiveTheme} rounded-2xl text-xl ${tema === 'dark' ? 'text-white' : 'text-black'} cursor-pointer`} 
+                onClick={onClick}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >{number}</motion.button>
         </section>
     )
 }

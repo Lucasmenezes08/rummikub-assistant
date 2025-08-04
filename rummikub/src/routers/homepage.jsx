@@ -16,9 +16,9 @@ export default function Homepage (){
     return (
         <motion.section 
             className={` relative h-screen w-full ${tema === 'dark' ? 'bg-slate-900' : 'bg-white'}`}
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            initial={{ opacity: 0}}
+            animate={{ opacity: 1}}
+            transition={{ duration: 0.75, ease: "easeInOut" }}
         >
             {
                 /*
